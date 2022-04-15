@@ -5,8 +5,8 @@
     <classes>
       <class name="Payroll360Testcases.CompanypageTest">
         <methods>
-          <include name="login"/>
           <include name="createnewcomp"/>
+          <include name="login"/>
         </methods>
       </class> <!-- Payroll360Testcases.CompanypageTest -->
     </classes>

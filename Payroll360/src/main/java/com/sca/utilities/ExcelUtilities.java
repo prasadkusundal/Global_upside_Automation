@@ -13,7 +13,7 @@ import org.openqa.selenium.JavascriptExecutor;
 public class ExcelUtilities {
 
 	//static String filePath="C:\\Users\\Hp\\Desktop\\Salesforce Automation jan2022\\Automation_Salesforce-main\\Payroll360\\src\\main\\java\\com\\sca\\resources\\Testdata1..xlsxx";
-	static String filePath=System.getProperty("user.dir")+"\\src/main/java/com/sca/resources/Testdata1..xlsx";
+	static String filePath="C:\\Users\\Gitesh\\Documents\\GitHub\\Global_upside_Automation\\Payroll360\\src\\main\\java\\com\\sca\\resources\\Testdata1..xlsx";
 
 	
 	static Workbook book;
