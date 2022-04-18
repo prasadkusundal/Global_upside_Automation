@@ -12,12 +12,12 @@ import org.openqa.selenium.JavascriptExecutor;
 
 public class ExcelUtilities {
 
-	//static String filePath="C:\\Users\\Hp\\Desktop\\Salesforce Automation jan2022\\Automation_Salesforce-main\\Payroll360\\src\\main\\java\\com\\sca\\resources\\Testdata1..xlsxx";
-	static String filePath=System.getProperty("user.dir")+"\\src/main/java/com/sca/resources/Testdata1..xlsx";
+	static String filePath="\\C:\\Users\\Hp\\Documents\\GitHub\\Global_upside_Automation\\Payroll360\\src\\main\\java\\com\\sca\\resources\\Testdata1..xlsx";
+	//static String filePath=System.getProperty("user.dir")+"/Payroll360/src/main/java/com/sca/resources/Testdata1..xlsx";
 
 	
 	static Workbook book;
-	static Sheet sheet;
+	static Sheet Company;
 	static JavascriptExecutor js;
 
 	public static Object[][] getExcel(String sheetName) {
@@ -34,13 +34,13 @@ public class ExcelUtilities {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		sheet = (Sheet) book.getSheet(sheetName);
-		Object[][] data = new Object[(sheet).getLastRowNum()][(sheet).getRow(0).getLastCellNum()];
+		Company = (Sheet) book.getSheet(sheetName);
+		Object[][] data = new Object[(Company).getLastRowNum()][(Company).getRow(0).getLastCellNum()];
 		// System.out.println(sheet.getLastRowNum() + "--------" +
 		// sheet.getRow(0).getLastCellNum());
-		for (int i = 0; i < (sheet).getLastRowNum(); i++) {
-			for (int k = 0; k < (sheet).getRow(0).getLastCellNum(); k++) {
-				data[i][k] = (sheet).getRow(i + 1).getCell(k).toString();
+		for (int i = 0; i < (Company).getLastRowNum(); i++) {
+			for (int k = 0; k < (Company).getRow(0).getLastCellNum(); k++) {
+				data[i][k] = (Company).getRow(i + 1).getCell(k).toString();
 			//	System.out.println(data[i][k]);
 			}
 		}

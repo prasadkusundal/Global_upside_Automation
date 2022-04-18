@@ -28,8 +28,9 @@ public class CompanypageTest extends TestBase {
 		loginpage=new LoginPage();
 		companyPage=new Companypage();
 		loginpage.login(p.getProperty("userN"),p.getProperty("PassW"));
-		Thread.sleep(5000);
+		Thread.sleep(15000);
 		Assert.assertEquals(loginpage.loginverify(),"Companies","Login fail");
+		Thread.sleep(15000);
 		companyPage.clickonCompany();	
 	    
 		
@@ -43,8 +44,8 @@ public class CompanypageTest extends TestBase {
 	}
 	
 	@Test(dataProvider="getCompanyDetails")
-	public void createnewcomp(String compname,String streetnumber,String streetadd,String postno,String cityname,String country) throws InterruptedException {
-		companyPage.createNewCompany(compname, streetnumber, streetadd, postno, cityname,country);
+	public void createnewcomp(String compname,String streetnumber,String streetadd,String postno,String cityname,String countryname) throws InterruptedException {
+		companyPage.createNewCompany(compname, streetnumber, streetadd, postno, cityname,countryname);
 		//Assert.assertEquals(createnewcompany.verifycompanyname(),compname,"Account name not match");
 		System.out.println("Assertion pass");
 	}

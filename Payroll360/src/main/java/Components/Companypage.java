@@ -34,8 +34,8 @@ public class Companypage extends TestBase {
     @FindBy(xpath = "(//button[@class=\"slds-combobox__input slds-input_faux slds-combobox__input-value\"])[1]")
 	WebElement country;
     
-    @FindBy(xpath = "//input[@id='combobox-button-139-9']")
-   	WebElement countryname;
+    @FindBy(xpath = "//button[@id='combobox-button-133'])[2]")
+   	WebElement countryname1;
     
     @FindBy(xpath="//lightning-base-combobox-item[@class=\"slds-media slds-listbox__option slds-media_center slds-media_small slds-listbox__option_plain\"]/span[@class=\"slds-media__figure slds-listbox__option-icon\"]")
     WebElement countryList;
@@ -109,6 +109,8 @@ public class Companypage extends TestBase {
 			Thread.sleep(6000);
 			country.click();
 			Thread.sleep(6000);
+			country.sendKeys(countryN);
+		//	countryname1.click();
 			List<WebElement> counList=driver.findElements(By.xpath("//lightning-base-combobox-item[@class=\"slds-media slds-listbox__option slds-media_center slds-media_small slds-listbox__option_plain\"]/span[@class=\"slds-media__body\"]/span"));
 			for(WebElement ele :counList)
 			{
