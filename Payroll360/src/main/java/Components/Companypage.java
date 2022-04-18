@@ -109,7 +109,7 @@ public class Companypage extends TestBase {
 			Thread.sleep(6000);
 			country.click();
 			Thread.sleep(6000);
-			country.sendKeys(countryN);
+			//country.sendKeys(countryN);
 		//	countryname1.click();
 			List<WebElement> counList=driver.findElements(By.xpath("//lightning-base-combobox-item[@class=\"slds-media slds-listbox__option slds-media_center slds-media_small slds-listbox__option_plain\"]/span[@class=\"slds-media__body\"]/span"));
 			for(WebElement ele :counList)
