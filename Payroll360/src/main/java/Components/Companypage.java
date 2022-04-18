@@ -1,9 +1,5 @@
 package Components;
 import com.sca.commosActions.TestBase;
-
-import java.util.List;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -31,14 +27,11 @@ public class Companypage extends TestBase {
 	@FindBy(xpath = "//input[@name='VLSF_Post_Code__c']")
 	WebElement postcode;
 	
-    @FindBy(xpath = "(//button[@class=\"slds-combobox__input slds-input_faux slds-combobox__input-value\"])[1]")
+    @FindBy(xpath = "//*[@id=\"combobox-button-139\"]")
 	WebElement country;
     
     @FindBy(xpath = "//input[@id='combobox-button-139-9']")
    	WebElement countryname;
-    
-    @FindBy(xpath="//lightning-base-combobox-item[@class=\"slds-media slds-listbox__option slds-media_center slds-media_small slds-listbox__option_plain\"]/span[@class=\"slds-media__figure slds-listbox__option-icon\"]")
-    WebElement countryList;
     
    // @FindBy(xpath = "//input[@data-value='Brazil']")
    //WebElement countryname;
@@ -46,7 +39,7 @@ public class Companypage extends TestBase {
 	@FindBy(xpath = "//input[@name='VLSF_City__c']")
 	WebElement city;
 	
-	  @FindBy(xpath = "(//button[@class=\"slds-combobox__input slds-input_faux slds-combobox__input-value\"])[2]")
+	  @FindBy(xpath = "//input[@class='slds-combobox__input slds-input_faux slds-combobox__input-value'][2]")
 		WebElement financialyear;
 	
 	  @FindBy(xpath = "//input[@aria-label='Financial Year Start Day, 3']")
@@ -95,11 +88,11 @@ public class Companypage extends TestBase {
 		
 		
 	  
-		public void createNewCompany(String companyname,String streetnumber,String streetadd,String postno,String cityname, String countryN) throws InterruptedException {
+		public void createNewCompany(String companyname,String streetnumber,String streetadd,String postno,String cityname) throws InterruptedException {
 			Thread.sleep(2000);
 			newcompany.click();
 			Thread.sleep(9000);
-			compname.sendKeys(companyname);//vyomsAutomationlab
+			compname.sendKeys(companyname);
 			Thread.sleep(6000);
 			streetno.sendKeys(streetnumber);
 			Thread.sleep(6000);
@@ -109,19 +102,27 @@ public class Companypage extends TestBase {
 			Thread.sleep(6000);
 			country.click();
 			Thread.sleep(6000);
-			List<WebElement> counList=driver.findElements(By.xpath("//lightning-base-combobox-item[@class=\"slds-media slds-listbox__option slds-media_center slds-media_small slds-listbox__option_plain\"]/span[@class=\"slds-media__body\"]/span"));
-			for(WebElement ele :counList)
-			{
-				String coun=ele.getText();
-				if(coun.equalsIgnoreCase(countryN))
-				{
-					ele.click();
-					Thread.sleep(2000);
-					break;
-				}
-			}
+			countryname.click();
+			Thread.sleep(9000);
 			city.sendKeys(cityname);
-			
+			financialyear.click();
+			Thread.sleep(6000);
+			fyvalue.click();
+			Thread.sleep(6000);
+			financialmonth.click();
+			Thread.sleep(6000);
+			monthvalue.click();
+			Thread.sleep(6000);
+			decimalplaces.click();
+			Thread.sleep(6000);
+			decimalvalue.click();
+			Thread.sleep(6000);
+			globalcurrency.click();
+			Thread.sleep(6000);
+			currencyvalue.click();
+			Thread.sleep(6000);
+			savebtn.click();
+			Thread.sleep(10000);
 			
 		}
 		
@@ -129,7 +130,11 @@ public class Companypage extends TestBase {
 			return createdcompanyname.getText();
 		}
 
-
+	public void createNewCompany1(String companyname) throws InterruptedException {
+		
+		compname.sendKeys(companyname);
+		Thread.sleep(6000);
+	}
 
 	public void clickonCompany() {
 		JavascriptExecutor js=(JavascriptExecutor)TestBase.driver;

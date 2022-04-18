@@ -14,7 +14,7 @@ import Components.LoginPage;
 public class CompanypageTest extends TestBase {
 
 	LoginPage loginpage;
-	Companypage companyPage;
+	Companypage createnewcompany;
 	String wbSheet="Company";
 	
 	public CompanypageTest()
@@ -26,11 +26,11 @@ public class CompanypageTest extends TestBase {
 	public void login() throws InterruptedException {
 		launch();
 		loginpage=new LoginPage();
-		companyPage=new Companypage();
+		createnewcompany=new Companypage();
 		loginpage.login(p.getProperty("userN"),p.getProperty("PassW"));
 		Thread.sleep(5000);
 		Assert.assertEquals(loginpage.loginverify(),"Companies","Login fail");
-		companyPage.clickonCompany();	
+	    createnewcompany.clickonCompany();	
 	    
 		
 		
@@ -43,9 +43,9 @@ public class CompanypageTest extends TestBase {
 	}
 	
 	@Test(dataProvider="getCompanyDetails")
-	public void createnewcomp(String compname,String streetnumber,String streetadd,String postno,String cityname,String country) throws InterruptedException {
-		companyPage.createNewCompany(compname, streetnumber, streetadd, postno, cityname,country);
-		//Assert.assertEquals(createnewcompany.verifycompanyname(),compname,"Account name not match");
+	public void createnewcomp(String compname) throws InterruptedException {
+		createnewcompany.createNewCompany1(compname);
+		Assert.assertEquals(createnewcompany.verifycompanyname(),compname,"Account name not match");
 		System.out.println("Assertion pass");
 	}
 	
