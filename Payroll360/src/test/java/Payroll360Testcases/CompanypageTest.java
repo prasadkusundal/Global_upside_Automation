@@ -4,6 +4,7 @@ import com.sca.commosActions.TestBase;
 import com.sca.utilities.ExcelUtilities;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -30,7 +31,7 @@ public class CompanypageTest extends TestBase {
 		loginpage.login(p.getProperty("userN"),p.getProperty("PassW"));
 		Thread.sleep(15000);
 		Assert.assertEquals(loginpage.loginverify(),"Companies","Login fail");
-		Thread.sleep(15000);
+		Thread.sleep(5000);
 		companyPage.clickonCompany();	
 	    
 		
@@ -46,10 +47,14 @@ public class CompanypageTest extends TestBase {
 	@Test(dataProvider="getCompanyDetails")
 	public void createnewcomp(String compname,String streetnumber,String streetadd,String postno,String cityname,String countryN) throws InterruptedException {
 		companyPage.createNewCompany(compname, streetnumber, streetadd, postno, cityname,countryN);
-		//Assert.assertEquals(createnewcompany.verifycompanyname(),compname,"Account name not match");
+		Assert.assertEquals(companyPage.verifycompanyname(),compname,"Account name not match");
 		System.out.println("Assertion pass");
 	}
-	
+	@AfterMethod
+	public void teardown()
+	{
+		driver.close();
+	}
 //	@Test
 //	public void createnewcomp() throws InterruptedException {
 //		createnewcompany.createNewCompany(p.getProperty("companyname"), p.getProperty("streetnumber"), p.getProperty("streetadd"), p.getProperty("postno"), p.getProperty("cityname"));

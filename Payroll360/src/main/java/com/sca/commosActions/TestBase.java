@@ -62,8 +62,8 @@ public class TestBase {
 		driver.get(p.getProperty("url"));
 		//driver.get("https://test.salesforce.com/");
 		driver.manage().window().maximize();
-		driver.manage().timeouts().pageLoadTimeout(50, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
 		e_driver = new EventFiringWebDriver(driver);
 		//eventListener = new WebEventListener();
 	//	e_driver.register((WebDriverEventListener) eventListener);

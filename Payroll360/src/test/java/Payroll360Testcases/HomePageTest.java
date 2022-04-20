@@ -20,9 +20,9 @@ public class HomePageTest extends TestBase {
 		 loginPage=new LoginPage();
 		// campaignPage= new CampaignPage();
 		 homePage=new HomePage();
-		 Thread.sleep(15000);
+		 Thread.sleep(5000);
 		 homePage=loginPage.login(p.getProperty("userN"), p.getProperty("PassW"));
-		 Thread.sleep(15000);
+		 Thread.sleep(5000);
 		 Assert.assertEquals(loginPage.loginverify(),"Companies","Login fail");
 		
 	} 

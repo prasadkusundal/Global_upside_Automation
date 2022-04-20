@@ -17,7 +17,7 @@ public class ExcelUtilities {
 
 	
 	static Workbook book;
-	static Sheet Company;
+	static Sheet sheet;
 	static JavascriptExecutor js;
 
 	public static Object[][] getExcel(String sheetName) {
@@ -34,13 +34,13 @@ public class ExcelUtilities {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		Company = (Sheet) book.getSheet(sheetName);
-		Object[][] data = new Object[(Company).getLastRowNum()][(Company).getRow(0).getLastCellNum()];
+		sheet = (Sheet) book.getSheet(sheetName);
+		Object[][] data = new Object[(sheet).getLastRowNum()][(sheet).getRow(0).getLastCellNum()];
 		// System.out.println(sheet.getLastRowNum() + "--------" +
 		// sheet.getRow(0).getLastCellNum());
-		for (int i = 0; i < (Company).getLastRowNum(); i++) {
-			for (int k = 0; k < (Company).getRow(0).getLastCellNum(); k++) {
-				data[i][k] = (Company).getRow(i + 1).getCell(k).toString();
+		for (int i = 0; i < (sheet).getLastRowNum(); i++) {
+			for (int k = 0; k < (sheet).getRow(0).getLastCellNum(); k++) {
+				data[i][k] = (sheet).getRow(i + 1).getCell(k).toString();
 			//	System.out.println(data[i][k]);
 			}
 		}

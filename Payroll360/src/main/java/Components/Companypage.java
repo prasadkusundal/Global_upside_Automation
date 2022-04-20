@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -40,7 +41,7 @@ public class Companypage extends TestBase {
     @FindBy(xpath="//lightning-base-combobox-item[@class=\"slds-media slds-listbox__option slds-media_center slds-media_small slds-listbox__option_plain\"]/span[@class=\"slds-media__figure slds-listbox__option-icon\"]")
     WebElement countryList;
     
-   // @FindBy(xpath = "//input[@data-value='Brazil']")
+   // @FindBy(xpath = "//button[@data-value='Brazil']")
    //WebElement countryname;
     
 	@FindBy(xpath = "//input[@name='VLSF_City__c']")
@@ -49,36 +50,36 @@ public class Companypage extends TestBase {
 	  @FindBy(xpath = "(//button[@class=\"slds-combobox__input slds-input_faux slds-combobox__input-value\"])[2]")
 		WebElement financialyear;
 	
-	  @FindBy(xpath = "//input[@aria-label='Financial Year Start Day, 3']")
+	  @FindBy(xpath = "//button[@aria-label='Financial Year Start Day, 3']")
 		WebElement fyvalue;
 	  
-	  @FindBy(xpath = "//input[@class='slds-combobox__input slds-input_faux slds-combobox__input-value'][3]")
+	  @FindBy(xpath = "(//button[@class='slds-combobox__input slds-input_faux slds-combobox__input-value'])[3]")
 		WebElement financialmonth;
 	  
-	  @FindBy(xpath = "//input[@aria-label='Financial Year Start Month, March']")
+	  @FindBy(xpath = "//button[@aria-label='Financial Year Start Month, March']")
 		WebElement monthvalue;
 	  
 	
-	  @FindBy(xpath = "//input[@class='slds-combobox__input slds-input_faux slds-combobox__input-value'][4]")
+	  @FindBy(xpath = "(//button[@class='slds-combobox__input slds-input_faux slds-combobox__input-value'])[4]")
 		WebElement decimalplaces;
 	  
-	  @FindBy(xpath = "//input[@aria-label='Decimal Places, 2']")
+	  @FindBy(xpath = "//button[@aria-label='Decimal Places, 2']")
 		WebElement decimalvalue;
 	
-	  @FindBy(xpath = "//input[@class='slds-combobox__input slds-input_faux slds-combobox__input-value'][5]")
+	  @FindBy(xpath = "(//button[@class='slds-combobox__input slds-input_faux slds-combobox__input-value'])[5]")
 		WebElement seperater;
 	  
-	  @FindBy(xpath = "//input[@aria-label='1000 Separator, Comma']")
+	  @FindBy(xpath = "//button[@aria-label='1000 Separator, Comma']")
 		WebElement seperatervalue;
 	  
-	  @FindBy(xpath = "//input[@class='slds-combobox__input slds-input_faux slds-combobox__input-value'][6]")
+	  @FindBy(xpath = "(//button[@class='slds-combobox__input slds-input_faux slds-combobox__input-value'])[6]")
 		WebElement globalcurrency;
 	  
-	  @FindBy(xpath = "//input[@aria-label='Global Currency, BAM']")
+	  @FindBy(xpath = "//button[@aria-label='Global Currency, BAM']")
 		WebElement currencyvalue;
 	  
 	  
-	  @FindBy(xpath = "//input[@class='slds-button slds-button_brand'][6]")
+	  @FindBy(xpath = "//button[@class='slds-button slds-button_brand']")
 		WebElement savebtn;
 	  @FindBy(xpath = "//lightning-formatted-text[@class=\"custom-truncate\"]")
 		WebElement  createdcompanyname;
@@ -108,9 +109,6 @@ public class Companypage extends TestBase {
 			postcode.sendKeys(postno);
 			Thread.sleep(6000);
 			country.click();
-			Thread.sleep(6000);
-			//country.sendKeys(countryN);
-		//	countryname1.click();
 			List<WebElement> counList=driver.findElements(By.xpath("//lightning-base-combobox-item[@class=\"slds-media slds-listbox__option slds-media_center slds-media_small slds-listbox__option_plain\"]/span[@class=\"slds-media__body\"]/span"));
 			for(WebElement ele :counList)
 			{
@@ -123,8 +121,24 @@ public class Companypage extends TestBase {
 				}
 			}
 			city.sendKeys(cityname);
-			
-			
+			Thread.sleep(6000);
+			financialyear.sendKeys("3");
+			financialyear.sendKeys(Keys.ENTER);
+			Thread.sleep(6000);
+			financialmonth.sendKeys("M");
+			financialmonth.sendKeys(Keys.ENTER);
+			Thread.sleep(6000);
+			decimalplaces.sendKeys("2");
+			decimalplaces.sendKeys(Keys.ENTER);
+			Thread.sleep(6000);
+			seperater.sendKeys("c");
+			seperater.sendKeys(Keys.ENTER);
+			Thread.sleep(6000);
+			globalcurrency.sendKeys("B");
+			globalcurrency.sendKeys(Keys.ENTER);
+			Thread.sleep(6000);
+			savebtn.click();
+			Thread.sleep(6000);
 		}
 		
 	public String verifycompanyname() {
