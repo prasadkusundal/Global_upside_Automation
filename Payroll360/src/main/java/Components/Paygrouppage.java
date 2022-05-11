@@ -9,9 +9,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.sca.commosActions.TestBase;
-
+//import org.openqa.selenium.interactions.Actions;
 public class Paygrouppage extends TestBase{
 
+//	Actions actions = new Actions(driver);
+//	
 	@FindBy(xpath="//span[contains(text(),'Companies')]")
 	WebElement companyObj;
  
@@ -49,11 +51,18 @@ public class Paygrouppage extends TestBase{
 	 
 	@FindBy(xpath = "//input[@name='VLSF_Location__c']")
 	WebElement location;
+	
+	 @FindBy(xpath = "//input[@class='slds-input slds-combobox__input slds-has-focus']")
+		WebElement parentpaygroup;
+	
+	 @FindBy(linkText = "VyomsAutomationedge")
+		WebElement parentpgpname;
+	 
 	 
 	 @FindBy(xpath = "//button[@class='slds-button slds-button_brand']")
 	WebElement savebtn;
 	
-//	 @FindBy(xpath = "(//lightning-formatted-text[@class=\"slds-page-header__title slds-m-right--small slds-align-middle clip-text slds-line-clamp\"])[2]")
+//	 @FindBy(xpath = "(//slot[@class="slds-page-header__title slds-m-right--small slds-align-middle clip-text slds-line-clamp"])[2]")
 //		WebElement createdpaygrpname;
 //	
 	 
@@ -67,7 +76,7 @@ public class Paygrouppage extends TestBase{
 		 company.click();
 		 Thread.sleep(10000);
 		 paygroupObj.click();
-		 Thread.sleep(15000);
+		 Thread.sleep(10000);
 //		 JavascriptExecutor js=(JavascriptExecutor)driver;
 //			js.executeScript("arguments[0].click();",newpaygroup);
      	 newpaygroup.click();
@@ -100,6 +109,11 @@ public class Paygrouppage extends TestBase{
 			Thread.sleep(6000);
 			location.sendKeys(paygrplocation);
 			Thread.sleep(6000);
+//			parentpaygroup.click();
+//			Thread.sleep(3000);
+//			actions.moveToElement(parentpgpname);
+//			actions.click().build().perform();
+//			Thread.sleep(3000);
 			savebtn.click();
 			Thread.sleep(6000);
 		 

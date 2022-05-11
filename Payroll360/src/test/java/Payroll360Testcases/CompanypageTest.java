@@ -47,7 +47,7 @@ public class CompanypageTest extends TestBase {
 	@Test(dataProvider="getCompanyDetails")
 	public void createnewcomp(String compname,String streetnumber,String streetadd,String postno,String cityname,String countryN) throws InterruptedException {
 		companyPage.createNewCompany(compname, streetnumber, streetadd, postno, cityname,countryN);
-		Assert.assertEquals(companyPage.verifycompanyname(),compname,"Account name not match");
+		Assert.assertEquals(companyPage.verifycompanyname(),compname,"Company name not match");
 		System.out.println("Assertion pass");
 	}
 	@AfterMethod

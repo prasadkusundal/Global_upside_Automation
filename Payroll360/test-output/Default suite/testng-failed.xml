@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Payroll360Testcases.PaygrouppageTest">
+      <class name="Payroll360Testcases.EventslistviewTest">
         <methods>
-          <include name="createnewpaygrp" invocation-numbers="0"/>
+          <include name="createneweditevents"/>
           <include name="login"/>
         </methods>
-      </class> <!-- Payroll360Testcases.PaygrouppageTest -->
+      </class> <!-- Payroll360Testcases.EventslistviewTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

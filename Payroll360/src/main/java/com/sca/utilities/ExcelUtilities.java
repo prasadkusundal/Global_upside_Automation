@@ -11,8 +11,9 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.JavascriptExecutor;
 
 public class ExcelUtilities {
-
-	static String filePath="\\C:\\Users\\Hp\\Documents\\GitHub\\Global_upside_Automation\\Payroll360\\src\\main\\java\\com\\sca\\resources\\Testdata1..xlsx";
+	
+	  static String filePath="C:\\Users\\Hp\\Documents\\GitHub\\Global_upside_Automation\\Payroll360\\src\\main\\java\\com\\sca\\resources\\Testdata1..xlsx";
+	//static String filePath="\\C:\\Users\\Hp\\Documents\\GitHub\\Global_upside_Automation\\Payroll360\\src\\main\\java\\com\\sca\\resources\\Testdata1..xlsx";
 	//static String filePath=System.getProperty("user.dir")+"/Payroll360/src/main/java/com/sca/resources/Testdata1..xlsx";
 
 	

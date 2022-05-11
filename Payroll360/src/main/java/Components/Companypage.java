@@ -41,8 +41,6 @@ public class Companypage extends TestBase {
     @FindBy(xpath="//lightning-base-combobox-item[@class=\"slds-media slds-listbox__option slds-media_center slds-media_small slds-listbox__option_plain\"]/span[@class=\"slds-media__figure slds-listbox__option-icon\"]")
     WebElement countryList;
     
-   // @FindBy(xpath = "//button[@data-value='Brazil']")
-   //WebElement countryname;
     
 	@FindBy(xpath = "//input[@name='VLSF_City__c']")
 	WebElement city;
@@ -81,8 +79,44 @@ public class Companypage extends TestBase {
 	  
 	  @FindBy(xpath = "//button[@class='slds-button slds-button_brand']")
 		WebElement savebtn;
-	  @FindBy(xpath = "//lightning-formatted-text[@class=\"custom-truncate\"]")
+	  @FindBy(xpath = "//slot[@class=\"slds-page-header__title slds-m-right--small slds-align-middle clip-text slds-line-clamp\"]")
 		WebElement  createdcompanyname;
+	  
+	  
+	  // company Edit page
+	  
+	  @FindBy(xpath = "//div[@class='slds-theme--error slds-notify--toast slds-notify slds-notify--toast forceToastMessage']")
+			WebElement Errormsg;
+	  
+	  @FindBy(xpath="(//button[@class=\"slds-button slds-button_neutral\"])[1]")
+		WebElement edit; 
+	  
+//	  @FindBy(linkText = "Edit")
+//		WebElement edit;
+	  
+//	  @FindBy(xpath="//span[contains(text(),'Edit')]")
+//		WebElement edit;
+	  
+	  @FindBy(xpath = "(//button[@class='slds-combobox__input slds-input_faux slds-combobox__input-value'])[3]")
+		WebElement Editfinancialmonth;
+	  
+	  @FindBy(xpath = "//button[@class='slds-button slds-button_brand']")
+		WebElement editsavebtn;
+	  
+	  @FindBy(xpath= "(//a[@title='VyomsAutomationedge'])[1]")
+		WebElement editingcompany;
+	  
+	  
+	  //company validation
+	  
+	  
+//	@FindBy(xpath="//div[@class='pageLevelErrors']")
+//	WebElement validatecompany;
+	  
+	@FindBy(xpath="//ul[@class=\"errorsList slds-list_dotted slds-m-left_medium\"]")
+	WebElement validatecompany;
+	  
+	  
 	  
 	  public Companypage() {
 			PageFactory.initElements(driver, this);
@@ -92,10 +126,24 @@ public class Companypage extends TestBase {
 //			JavascriptExecutor js=(JavascriptExecutor)TestBase.driver;
 //			js.executeScript("arguments[0].click();",companyObj);
 //		}
-		
-		
-		
+	  public void EditCompany(String companyname,String streetnumber,String streetadd,String postno,String cityname, String countryN) throws InterruptedException
+	  {
+		     Thread.sleep(2000);
+			 editingcompany.click();
+			 Thread.sleep(10000);
+		     edit.click();
+		     Thread.sleep(10000);
+		     Editfinancialmonth.sendKeys("A");
+		     Editfinancialmonth.sendKeys(Keys.ENTER);
+		     Thread.sleep(6000);
+		     editsavebtn.click();
+		     Thread.sleep(8000);
+	  }
 	  
+	  
+	  
+		
+		
 		public void createNewCompany(String companyname,String streetnumber,String streetadd,String postno,String cityname, String countryN) throws InterruptedException {
 			Thread.sleep(2000);
 			newcompany.click();
@@ -145,6 +193,9 @@ public class Companypage extends TestBase {
 			return createdcompanyname.getText();
 		}
 
+	public String validatecompanyname() {
+		return validatecompany.getText();
+	}
 
 
 	public void clickonCompany() {

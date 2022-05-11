@@ -41,7 +41,9 @@ public class TestBase {
 		try {
 			p=new Properties();
 		//	FileInputStream f=new FileInputStream(System.getProperty("user.dir")+"C:\\Users\\Hp\\Desktop\\Salesforce Automation jan2022\\Automation_Salesforce-main\\Payroll360\\src\\main\\java\\Properties\\Config.properties" );
-			FileInputStream f=new FileInputStream("C:\\Users\\Hp\\Desktop\\Salesforce_Automation_jan2022\\Automation_Salesforce-main\\Payroll360\\src\\main\\java\\Properties\\Config.properties" );
+			//FileInputStream f=new FileInputStream("C:\\Users\\Hp\\Desktop\\Salesforce_Automation_jan2022\\Automation_Salesforce-main\\Payroll360\\src\\main\\java\\Properties\\Config.properties" );
+			FileInputStream f=new FileInputStream("C:\\Users\\Hp\\Documents\\GitHub\\Global_upside_Automation\\Payroll360\\src\\main\\java\\Properties\\Config.properties" );
+				
 			//C:\Users\Hp\Desktop\Salesforce Automation jan2022\Automation_Salesforce-main\Payroll360\src\main\java\Properties
 			p.load(f);
 			;
